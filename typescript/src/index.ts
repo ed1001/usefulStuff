@@ -118,3 +118,14 @@ function getArray1<T>(items: T[]): T[] {
 getArray<string>(['q', 'w', 'e'])
 // getArray<number>(['q', 'w', 'e']) not possible
 
+// When we construct new literal expressions with const assertions, we can signal to the language that
+// no literal types in that expression should be widened (e.g. no going from "hello" to string)
+// object literals get readonly properties
+// array literals become readonly tuples
+
+// Type '"hello"'
+let x = "hello" as const;
+// Type 'readonly [10, 20]'
+let y = [10, 20] as const;
+// Type '{ readonly text: "hello" }'
+let z = { text: "hello" } as const;
