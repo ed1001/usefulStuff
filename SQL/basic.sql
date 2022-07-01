@@ -66,5 +66,5 @@ join some_table, another_table
 select some_column, 'archived' as order_status from some_table where dob < '2020-01-01'
 union
 select some_column, 'active' from some_table where dob > '2020-01-01'
-
-
+-- if using limit on one if the queries use brackets
+(select ... limit 100)
